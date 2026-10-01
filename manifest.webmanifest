@@ -1,0 +1,13 @@
+{
+  "name": "Studium — Preparação para Residência",
+  "short_name": "Studium",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#171214",
+  "theme_color": "#171214",
+  "description": "Central pessoal de estudos e preparação para residência médica.",
+  "icons": [
+    {"src":"icon-192.png","sizes":"192x192","type":"image/png"},
+    {"src":"icon-512.png","sizes":"512x512","type":"image/png"}
+  ]
+}

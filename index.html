@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#171416">
+<title>OfensivaMED — Studium</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=EB+Garamond:wght@400;500;600&family=Libre+Baskerville:wght@400;700&display=swap');
+:root{
+ --bg:#171416;--panel:#211b1d;--panel2:#2a2023;--ink:#f0e4d0;--muted:#ad9c91;
+ --gold:#c5a46d;--gold2:#e0c68e;--wine:#7f253d;--wine2:#a83a58;
+ --green:#294b3d;--green2:#3f6b55;--line:#4b3a3b;--cream:#efe2c9;
+}
+*{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 80% 0%,#332126 0,#171416 40%);color:var(--ink);font-family:"EB Garamond",serif;font-size:16px}
+button,input,select,textarea{font:inherit} button{cursor:pointer}
+.app{display:flex;min-height:100dvh}.side{width:250px;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;border-right:1px solid var(--line);padding:28px 18px;position:fixed;inset:0 auto 0 0;background:rgba(23,20,22,.96);z-index:5}
+.brand{padding:4px 10px 28px;border-bottom:1px solid var(--line);margin-bottom:18px}.brand small{font-family:"Libre Baskerville";letter-spacing:.18em;color:var(--gold);font-size:9px}.brand h1{font:700 31px "Cormorant Garamond";margin:5px 0 0}.brand p{color:var(--muted);margin:0;font-style:italic}
+nav button{width:100%;text-align:left;min-height:44px;background:none;border:0;color:var(--muted);padding:12px 12px;border-radius:8px;margin:2px 0;letter-spacing:.02em}nav button:hover,nav button.active{background:#2b2023;color:var(--cream);box-shadow:inset 2px 0 var(--gold)}
+.navicon{display:inline-block;width:27px;color:var(--gold)}
+.main{margin-left:250px;min-height:100dvh;overflow-x:hidden;overflow-y:auto;width:calc(100% - 250px);max-width:none;padding:34px 42px 90px;scroll-behavior:smooth}.top{display:flex;justify-content:space-between;align-items:end;margin-bottom:26px}.eyebrow{text-transform:uppercase;letter-spacing:.22em;color:var(--gold);font:10px "Libre Baskerville"}.title{font:700 42px "Cormorant Garamond";margin:5px 0}.subtitle{color:var(--muted);font-style:italic}.date{color:var(--gold2);font-size:15px}
+.grid{display:grid;gap:16px}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:linear-gradient(145deg,rgba(43,32,35,.94),rgba(31,25,28,.94));border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:0 12px 30px rgba(0,0,0,.16)}.card h3{font:600 23px "Cormorant Garamond";margin:0 0 10px}.metric{font:700 30px "Cormorant Garamond";color:var(--cream)}.label{font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}.gold{color:var(--gold2)}.wine{color:#cf7189}.green{color:#9fc8ae}
+.progress{height:7px;background:#3a3031;border-radius:99px;overflow:hidden;margin:10px 0}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--wine),var(--gold));border-radius:99px}
+.section{margin-top:28px}.sectionhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.sectionhead h2{font:600 29px "Cormorant Garamond";margin:0}.btn{border:1px solid #70585b;background:#2b2023;color:var(--cream);padding:9px 13px;border-radius:7px}.btn:hover{border-color:var(--gold);color:white}.btn.primary{background:var(--wine);border-color:#9c3c57}.btn.green{background:var(--green);border-color:#517b66}
+.task{display:flex;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid #3b3032}.task:last-child{border-bottom:0}.check{width:20px;height:20px;border:1px solid #806d69;border-radius:5px;display:grid;place-items:center;flex:none}.check.done{background:var(--green2);border-color:var(--green2);color:white}.task.done .taskname{text-decoration:line-through;color:#82756f}.grow{flex:1}.tag{font-size:11px;padding:3px 7px;border-radius:99px;border:1px solid #6b5356;color:#c8b6a7}.high{border-color:#8c4054;color:#e2a0b0}.medium{border-color:#8a754b;color:#ddc38d}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:11px 9px;border-bottom:1px solid #3b3032}th{color:var(--gold);font:11px "Libre Baskerville";text-transform:uppercase;letter-spacing:.06em}td{color:#d8c9b9}.trend{font-size:12px;color:#9fc8ae}
+input,select,textarea{background:#181517;color:var(--cream);border:1px solid #574447;border-radius:7px;padding:10px 11px;width:100%;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--gold)}.form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.form .full{grid-column:1/-1}.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;padding:20px;z-index:20}.modal.open{display:flex}.modalbox{max-width:620px;width:100%;background:#211b1d;border:1px solid var(--gold);border-radius:12px;padding:24px;max-height:90vh;overflow:auto}.modalbox h2{font:700 30px "Cormorant Garamond";margin-top:0}
+.kpi{display:flex;justify-content:space-between;gap:15px}.mini{font-size:13px;color:var(--muted)}.barrow{margin:13px 0}.barrow div:first-child{display:flex;justify-content:space-between}.ring{width:90px;height:90px;border-radius:50%;background:conic-gradient(var(--gold) 0 78%,#3b3032 78%);display:grid;place-items:center}.ring:after{content:"";width:68px;height:68px;border-radius:50%;background:#211b1d;position:absolute}.ring span{position:relative;z-index:1;font:700 22px "Cormorant Garamond"}.quote{font:italic 18px "Cormorant Garamond";color:#d8c6b4;border-left:2px solid var(--gold);padding-left:15px}.empty{text-align:center;color:var(--muted);padding:30px}
+
+.calendarwrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}.calendar{min-width:720px;display:grid;grid-template-columns:repeat(7,1fr);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.calhead{padding:10px;background:#2a2023;color:var(--gold);font:10px "Libre Baskerville";text-align:center}
+.calday{min-height:95px;padding:8px;border-top:1px solid var(--line);border-right:1px solid var(--line);background:#1d181a}
+.calday.muted{opacity:.45}.calnum{font:700 15px "Cormorant Garamond"}.calitem{font-size:11px;background:#3b2730;border-left:2px solid var(--gold);padding:3px 4px;margin-top:5px;border-radius:3px}
+.notegrid{display:grid;grid-template-columns:260px 1fr;gap:16px}.notelist{max-height:520px;overflow:auto}.noteitem{padding:12px;border-bottom:1px solid var(--line);cursor:pointer}.noteitem.active{background:#302327;border-left:2px solid var(--gold)}.noteitem h4{font:600 18px "Cormorant Garamond";margin:0}.noteitem small{color:var(--muted)}textarea.notearea{min-height:220px;resize:vertical}
+@media(max-width:900px){.notegrid{grid-template-columns:1fr}.calday{min-height:70px}}
+
+.mobilebar{display:none}.menubtn{display:none}.navshade{display:none}
+.pagebody{min-width:0}
+.scrollx{width:100%;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}
+.card,.section,.grid{min-width:0}
+table{min-width:620px}
+@media(max-width:1100px){.main{padding-left:28px;padding-right:28px}.g4{grid-template-columns:repeat(2,1fr)}}
+
+@media(max-width:900px){.side{height:100dvh;overflow-y:auto}.main{min-height:100dvh;overflow-y:auto;overflow-x:hidden}.menubtn{display:block;position:fixed;top:14px;left:14px;z-index:15;background:#2b2023;color:var(--gold2);border:1px solid var(--line);border-radius:7px;padding:7px 10px}.navshade{position:fixed;inset:0;background:rgba(0,0,0,.48);z-index:4}.side{display:block;width:min(300px,86vw);transform:translateX(-105%);transition:transform .25s ease;box-shadow:12px 0 35px rgba(0,0,0,.4)}.side.open{transform:translateX(0)}.main{margin-left:0;width:100%;padding:24px 17px 90px}.g4{grid-template-columns:repeat(2,1fr)}.g3,.g2{grid-template-columns:1fr}.mobilebar{display:flex;position:fixed;bottom:0;left:0;right:0;background:#1b1719;border-top:1px solid var(--line);z-index:10;justify-content:space-around;padding:7px}.mobilebar button{background:none;border:0;color:var(--muted);font-size:11px}.mobilebar button.active{color:var(--gold2)}.title{font-size:36px}.form{grid-template-columns:1fr}}
+.quote{font-family:"Cormorant Garamond",serif;font-size:20px;font-style:italic;color:var(--gold);max-width:720px}.empty{padding:24px;text-align:center;color:var(--muted)}
+#toast{position:fixed;right:20px;bottom:20px;z-index:50;background:#2b2023;border:1px solid var(--gold);color:var(--cream);padding:10px 14px;border-radius:8px;opacity:0;transform:translateY(8px);transition:.2s;pointer-events:none}#toast.show{opacity:1;transform:translateY(0)}\n</style>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#171214">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Studium">
+<link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="brand"><small>STUDIUM · 2026—2027</small><h1>OfensivaMED</h1><p>Seu centro de comando.</p></div>
+  <nav id="nav">
+    <button data-page="home" class="active"><span class="navicon">⌂</span>Início</button>
+    <button data-page="study"><span class="navicon">✦</span>Estudar</button>
+    <button data-page="residency"><span class="navicon">♜</span>Residência</button>
+    <button data-page="progress"><span class="navicon">◌</span>Progresso</button>
+    <button data-page="calendar"><span class="navicon">▦</span>Calendário</button>
+    <button data-page="notebook"><span class="navicon">▤</span>Caderno</button>
+    <button data-page="rewards"><span class="navicon">◇</span>Cofre</button>
+    <button data-page="journal"><span class="navicon">✎</span>Diário</button>
+    <button data-page="settings"><span class="navicon">⚙</span>Mais</button>
+  </nav>
+</aside>
+<main class="main" id="app"></main><div class="navshade" id="navshade"></div>
+</div>
+<button class="menubtn" id="menubtn" aria-label="Abrir menu">☰</button><div class="mobilebar" id="mobilebar"></div>
+
+<div class="modal" id="modal"><div class="modalbox" id="modalbox"></div></div>
+
+<script>
+const KEY="ofensivamed_final_2027";
+const DAILY_CARDS=[{text:"A preparação é longa. Faça bem o trabalho de hoje.",author:"William Osler — adaptação de um de seus aforismos"},{text:"A medicina se aprende à beira do leito, não apenas na sala de aula.",author:"William Osler"},{text:"O valor da experiência não está em ver muito, mas em ver com sabedoria.",author:"William Osler"},{text:"A medicina é ciência da incerteza e arte da probabilidade.",author:"Aforismo atribuído a William Osler"},{text:"Observe primeiro; depois raciocine, compare e controle.",author:"William Osler"},{text:"Você não precisa vencer o ano inteiro hoje. Precisa cumprir o próximo passo.",author:"OfensivaMED"},{text:"Cada questão errada pode virar uma página importante do seu caderno.",author:"OfensivaMED"}];
+const MED_FACTS=[{title:"Osler e o ensino à beira do leito",text:"William Osler defendia o ensino médico junto aos pacientes, valorizando observação e raciocínio clínico.",source:"Osler Club of London / The Quotable Osler"},{title:"O edital como mapa da prova",text:"A regulamentação da CNRM prevê que o edital informe, entre outros pontos, programas, vagas, requisitos, período de inscrição e período de realização do certame.",source:"CNRM/MEC — Resolução CNRM nº 4/2026"},{title:"A medicina muda",text:"Osler destacou que ideias de uma época podem ser revistas conforme o conhecimento avança.",source:"William Osler, The Evolution of Modern Medicine"}];
+
+const defaultData={
+  streak:0,tokens:0,goal:4,weekHours:0,totalQuestions:0,overallAccuracy:0,
+  tasks:[],subjects:[],exams:[],folders:[],notebooks:[],rewards:[
+   {name:"Café especial",cost:40,claimed:false},
+   {name:"Um capítulo de livro",cost:60,claimed:false},
+   {name:"Filme sem culpa",cost:180,claimed:false},
+   {name:"Livro novo",cost:500,claimed:false}
+  ],journal:[],notes:[],studyLog:[],events:[]
+};
+let data=JSON.parse(localStorage.getItem(KEY)||"null")||structuredClone(defaultData);
+function save(){localStorage.setItem(KEY,JSON.stringify(data))}
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function today(){return new Date().toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"})}
+function pageTitle(k){return ({home:"Centro de comando",study:"Estudar",residency:"Residência",progress:"Seu progresso",calendar:"Calendário",notebook:"Caderno",rewards:"Cofre de recompensas",journal:"Diário para minha residência",settings:"Mais"})[k]}
+function render(page="home"){
+ document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
+ const app=document.getElementById("app");
+ const head=`<div class="top"><div><div class="eyebrow">OfensivaMED · Studium</div><div class="title">${pageTitle(page)}</div><div class="subtitle">${page==="home"?"A preparação é longa. A direção pode ser clara.":"Acompanhe sua campanha, um passo de cada vez."}</div></div><div class="date">${today()}</div></div>`;
+ let body="";
+ if(page==="home") body=home();
+ if(page==="study") body=study();
+ if(page==="residency") body=residency();
+ if(page==="progress") body=progress();
+ if(page==="calendar") body=calendarPage();
+ if(page==="notebook") body=notebookPage();
+ if(page==="rewards") body=rewards();
+ if(page==="journal") body=journal();
+ if(page==="settings") body=settings();
+ app.innerHTML=head+`<div class="pagebody">${body}</div>`;
+ bind();
+ window.scrollTo({top:0,behavior:"instant"}); document.querySelector(".main")?.scrollTo({top:0,behavior:"instant"});
+}
+function home(){
+ const done=data.tasks.filter(t=>t.done).length, pct=data.tasks.length?Math.round(done/data.tasks.length*100):0;
+ const tasks=data.tasks.map(t=>`<div class="task ${t.done?"done":""}" data-task="${t.id}"><button class="check ${t.done?"done":""}">${t.done?"✓":""}</button><div class="grow"><div class="taskname">${esc(t.name)}</div><div class="mini">${esc(t.meta)}</div></div><span class="tag">${esc(t.tag||"")}</span></div>`).join("");
+ const next=data.events.slice().sort((a,b)=>(a.date||"").localeCompare(b.date||""))[0]; const quote=DAILY_CARDS[Math.floor(Date.now()/86400000)%DAILY_CARDS.length];
+ return `<div class="grid g4"><div class="card"><div class="label">Ofensiva</div><div class="metric">${data.streak} dias</div><div class="progress"><i style="width:${Math.min(100,data.streak/30*100)}%"></i></div><div class="mini">Consistência acima de tudo.</div></div><div class="card"><div class="label">Tokens</div><div class="metric gold">${data.tokens} ◆</div><div class="mini">Acumulados por ações reais.</div></div><div class="card"><div class="label">Semana</div><div class="metric">${data.weekHours} h</div><div class="mini">Meta diária: ${data.goal} h</div></div><div class="card"><div class="label">Questões</div><div class="metric">${data.totalQuestions.toLocaleString("pt-BR")}</div><div class="mini">${data.overallAccuracy}% de acerto geral</div></div></div><div class="section grid g2"><div class="card"><div class="sectionhead"><h2>Plano de hoje</h2><button class="btn" data-action="addtask">+ tarefa</button></div>${tasks||`<div class="empty">Nenhuma tarefa ainda.<br><br><button class="btn primary" data-action="addtask">Criar primeira tarefa</button></div>`}<div class="progress"><i style="width:${pct}%"></i></div><div class="mini">${done}/${data.tasks.length} tarefas concluídas</div></div><div class="card"><h2>Nota do dia</h2><div class="quote">${esc(quote.text)}</div><div class="mini" style="margin-top:10px">${esc(quote.author)}</div></div></div><div class="section grid g2"><div class="card"><h2>Próximo compromisso</h2>${next?`<div class="metric">${esc(next.date)}</div><div class="mini">${esc(next.title)} · ${esc(next.type)}</div>`:`<div class="empty">Seu próximo evento aparecerá aqui quando você cadastrar uma prova, revisão ou compromisso.</div>`}</div><div class="card"><h2>Seu ponto de partida</h2><div class="mini">O OfensivaMED não inventa seu desempenho. Questões, acertos, sessões e metas passam a construir seu histórico conforme você usa o aplicativo.</div></div></div><div class="section card"><h2>Pequena biblioteca de medicina</h2>${MED_FACTS.map(f=>`<div class="task"><div class="grow"><b>${esc(f.title)}</b><div class="mini">${esc(f.text)}</div><div class="mini" style="margin-top:4px">Fonte: ${esc(f.source)}</div></div></div>`).join("")}</div>`;
+}
+function study(){
+ return `<div class="grid g3">
+ <div class="card"><h3>Plano semanal</h3><div class="label">Meta</div><div class="metric">${data.goal} h/dia</div><div class="progress"><i style="width:${Math.min(100,data.weekHours/(data.goal*7)*100)}%"></i></div><div class="mini">${data.weekHours} h acumuladas</div><br><button class="btn primary" data-action="editgoal">Ajustar meta</button></div>
+ <div class="card"><h3>Sessão de foco</h3><div class="metric">25:00</div><div class="mini">Use o timer para uma sessão curta.</div><br><button class="btn primary" data-action="session">Iniciar sessão</button></div>
+ <div class="card"><h3>Questões</h3><div class="metric">${data.totalQuestions}</div><div class="mini">${data.overallAccuracy}% de acerto geral</div><br><button class="btn" data-action="logquestions">+ registrar questões</button></div>
+ </div>
+ <div class="section card"><div class="sectionhead"><h2>Temas</h2><button class="btn" data-action="addsubject">+ tema</button></div>
+ ${data.subjects.length?`<table><thead><tr><th>Tema</th><th>Área</th><th>Acerto</th><th>Questões</th><th>Prioridade</th><th>Revisão</th></tr></thead><tbody>${data.subjects.map(s=>`<tr><td><b>${esc(s.name)}</b></td><td>${esc(s.area)}</td><td>${s.accuracy}%</td><td>${s.questions}</td><td>${s.priority}</td><td>${s.review}</td></tr>`).join("")}</tbody></table>`:`<div class="empty">Nenhum tema cadastrado.<br><button class="btn primary" data-action="addsubject">+ adicionar tema</button></div>`}</div>
+ <div class="section card"><div class="sectionhead"><h2>Histórico de questões</h2></div>
+ ${data.studyLog.length?`<table><thead><tr><th>Data</th><th>Foco</th><th>Questões</th><th>Acertos</th><th>Taxa</th></tr></thead><tbody>${data.studyLog.map(x=>`<tr><td>${x.date}</td><td>${esc(x.focus)}</td><td>${x.questions}</td><td>${x.correct}</td><td>${x.questions?Math.round(x.correct/x.questions*100):0}%</td></tr>`).join("")}</tbody></table>`:`<div class="empty">Registre seu primeiro bloco de questões para começar o histórico.</div>`}</div>`;
+}
+function residency(){
+ const exams=data.exams||[];
+ return `<div class="sectionhead"><div class="mini">Acompanhe edital, inscrição, isenção, prova, resultado, vagas, concorrência e histórico de notas de corte.</div><button class="btn primary" data-action="addexam">+ processo seletivo</button></div>${exams.length?`<div class="grid g2">${exams.map((e,i)=>{const hist=e.cutHistory||[],cuts=hist.map(x=>Number(x.cut)).filter(Number.isFinite),avg=cuts.length?(cuts.reduce((a,b)=>a+b,0)/cuts.length).toFixed(1):"—",max=cuts.length?Math.max(...cuts):"—",min=cuts.length?Math.min(...cuts):"—";return `<div class="card"><div class="sectionhead"><h2>${esc(e.name)}</h2><span class="tag">${esc(e.status||"Acompanhando")}</span></div><div class="label">${esc(e.year||"")}</div><div class="grid g3" style="margin-top:15px"><div><div class="metric">${esc(e.vacancies||"—")}</div><div class="mini">vagas</div></div><div><div class="metric">${esc(e.candidates||"—")}</div><div class="mini">cand./vaga</div></div><div><div class="metric gold">${esc(e.cut||"—")}</div><div class="mini">corte referência</div></div></div><hr style="border:0;border-top:1px solid #3b3032;margin:18px 0"><div class="mini">Edital: ${esc(e.noticeDate||"—")} · Inscrições: ${esc(e.insStart||"—")} → ${esc(e.insEnd||"—")} · Prova: ${esc(e.date||"—")}</div><div class="mini" style="margin-top:8px">Resultado: ${esc(e.resultDate||"—")} · Taxa: ${esc(e.fee||"—")} · Banca: ${esc(e.board||"—")}</div><div class="section"><h3>Histórico de corte</h3>${hist.length?`<div class="mini">Média: <b>${avg}</b> · mínimo: <b>${min}</b> · máximo: <b>${max}</b></div><div style="overflow-x:auto;margin-top:10px"><table><thead><tr><th>Ano</th><th>Corte</th><th>Observação</th></tr></thead><tbody>${hist.map(x=>`<tr><td>${esc(x.year)}</td><td>${esc(x.cut)}</td><td>${esc(x.note||"")}</td></tr>`).join("")}</tbody></table></div>`:`<div class="empty">Adicione os cortes dos anos anteriores para criar a série histórica.</div>`}</div><div>${e.url?`<a class="btn primary" href="${esc(e.url)}" target="_blank" rel="noopener">Edital ↗</a>`:""} ${e.official?`<a class="btn" href="${esc(e.official)}" target="_blank" rel="noopener">Site oficial ↗</a>`:""} <button class="btn" data-action="editexam" data-i="${i}">Editar</button></div></div>`}).join("")}</div>`:`<div class="card empty"><h2>Sua lista de residências está vazia</h2><p>Comece adicionando os processos que você pretende acompanhar.</p><button class="btn primary" data-action="addexam">+ primeiro processo seletivo</button></div>`}<div class="section grid g3"><div class="card"><h3>O que acompanhar</h3><div class="mini">Edital · inscrição · isenção · taxa · prova · resultado · vagas · concorrência · corte · matrícula.</div></div><div class="card"><h3>Estatística de corte</h3><div class="mini">Média, mínimo e máximo são calculados a partir dos anos que você cadastrar. É um resumo histórico, não uma garantia do próximo corte.</div></div><div class="card"><h3>Calendário</h3><div class="mini">As datas de edital, inscrição, prova e resultado entram automaticamente no calendário.</div></div></div>`;
+}
+function progress(){
+ const logs=data.studyLog||[], totalQ=logs.reduce((a,x)=>a+(Number(x.questions)||0),0), totalC=logs.reduce((a,x)=>a+(Number(x.correct)||0),0);
+ const accuracy=totalQ?Math.round(totalC/totalQ*100):0;
+ const sessions=data.journal||[];
+ const days=new Set(sessions.map(x=>x.date)).size;
+ const consistency=sessions.length?Math.min(100,Math.round(days/30*100)):0;
+ return `<div class="grid g4"><div class="card"><div class="label">Acerto geral</div><div class="metric">${accuracy}%</div><div class="trend">${totalQ?"calculado a partir das suas questões":"aguardando seus primeiros registros"}</div></div><div class="card"><div class="label">Questões</div><div class="metric">${totalQ.toLocaleString("pt-BR")}</div><div class="trend">${totalQ?"volume acumulado":"comece a registrar"}</div></div><div class="card"><div class="label">Sessões</div><div class="metric">${sessions.length}</div><div class="trend">${sessions.length?"histórico registrado":"nenhuma sessão registrada"}</div></div><div class="card"><div class="label">Consistência</div><div class="metric">${consistency}%</div><div class="trend">${sessions.length?"dias com registro":"comece seu diário"}</div></div></div>
+ <div class="section grid g2"><div class="card"><h2>Áreas que pedem atenção</h2>${data.subjects.length?data.subjects.slice().sort((a,b)=>a.accuracy-b.accuracy).map(x=>`<div class="barrow"><div><span>${esc(x.name)}</span><b>${x.accuracy}%</b></div><div class="progress"><i style="width:${x.accuracy}%"></i></div></div>`).join(""):`<div class="empty">Ainda não há temas cadastrados. Esta área será construída com os seus registros.</div>`}</div><div class="card"><h2>Evolução</h2><div class="empty">Seu gráfico longitudinal aparecerá aqui depois que houver histórico suficiente de questões e sessões. Nenhum dado é inventado.</div></div></div>`;
+}
+function calendarPage(){
+ const now=new Date(), y=now.getFullYear(), m=now.getMonth(), first=new Date(y,m,1), last=new Date(y,m+1,0);
+ const names=["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"];
+ let cells=names.map(n=>`<div class="calhead">${n}</div>`).join("");
+ for(let i=0;i<first.getDay();i++) cells+=`<div class="calday muted"></div>`;
+ for(let d=1;d<=last.getDate();d++){const ds=`${y}-${String(m+1).padStart(2,"0")}-${String(d).padStart(2,"0")}`;const items=data.events.filter(e=>e.date===ds).map(e=>`<div class="calitem">${esc(e.title)}</div>`).join("");cells+=`<div class="calday"><div class="calnum">${d}</div>${items}</div>`;}
+ return `<div class="sectionhead"><div class="mini">Provas, revisões, simulados, inscrições e compromissos.</div><button class="btn primary" data-action="addevent">+ evento</button></div><div class="card"><div class="calendar">${cells}</div></div><div class="section card"><h2>Próximos eventos</h2>${data.events.length?data.events.slice().sort((a,b)=>a.date.localeCompare(b.date)).map(e=>`<div class="task"><b>${e.date}</b><span class="grow">${esc(e.title)}</span><span class="tag">${esc(e.type)}</span></div>`).join(""):`<div class="empty">Nenhum evento cadastrado.</div>`}</div>`;
+}
+function notebookPage(){
+ const folders=data.folders||[], notebooks=data.notebooks||[];
+ const folderBlocks=folders.map(f=>{const ns=notebooks.filter(n=>n.folderId===f.id);return `<div class="card"><div class="sectionhead"><h2>📁 ${esc(f.name)}</h2><button class="btn" data-action="newnotebook" data-i="${f.id}">+ caderno</button></div>${ns.length?`<div class="grid g3">${ns.map(n=>`<div class="card"><div class="label">Caderno</div><h3>▤ ${esc(n.name)}</h3><div class="mini">${data.notes.filter(x=>x.notebookId===n.id).length} páginas</div><br><button class="btn primary" data-action="newpage" data-i="${n.id}">+ página</button></div>`).join("")}</div>`:`<div class="empty">Esta pasta ainda não tem cadernos.</div>`}</div>`}).join("");
+ return `<div class="sectionhead"><div><h1 style="margin:0 0 4px">Caderno</h1><div class="mini">Organize seus resumos em Pastas → Cadernos → Páginas.</div></div><button class="btn primary" data-action="newfolder">+ nova pasta</button></div>${folders.length?folderBlocks:`<div class="card empty"><h2>Seu caderno começa aqui</h2><p>Primeiro crie uma pasta, por exemplo <b>Clínica Médica</b>. Dentro dela você poderá criar cadernos como <b>Cardiologia</b>, <b>Nefrologia</b> e outros.</p><button class="btn primary" data-action="newfolder">+ criar primeira pasta</button></div>`}${data.notes.length?`<div class="section card"><h2>Páginas recentes</h2>${data.notes.slice(0,10).map((n,i)=>`<div class="noteitem"><h4>${esc(n.title)}</h4><small>${esc(n.subject||"Sem tema")} · ${esc(n.updated)}</small><p class="mini">${esc((n.body||"").slice(0,180))}${(n.body||"").length>180?"…":""}</p><button class="btn" data-action="editpage" data-i="${i}">Abrir</button></div>`).join("")}</div>`:""}`;
+}
+function rewards(){
+ return `<div class="card"><div class="sectionhead"><div><h2>Seu cofre</h2><div class="mini">${data.tokens} ◆ disponíveis</div></div><button class="btn primary" data-action="addreward">+ recompensa</button></div><div class="grid g3">${data.rewards.map((r,i)=>`<div class="card"><h3>${esc(r.name)}</h3><div class="metric gold">${r.cost} ◆</div><div class="mini">${r.claimed?"Resgatada":"Disponível para você"}</div><br><button class="btn ${data.tokens>=r.cost&&!r.claimed?"green":""}" ${data.tokens<r.cost||r.claimed?"disabled":""} data-action="claim" data-i="${i}">${r.claimed?"Resgatada":"Resgatar"}</button></div>`).join("")}</div></div>`;
+}
+function journal(){
+ return `<div class="sectionhead"><div><h1 style="margin:0 0 4px">Diário para minha residência</h1><div class="quote">Foca. Você vai conseguir virar uma neurologista. Um dia de cada vez.</div><div class="mini" style="margin-top:8px">Registre como foi seu dia de estudo e acompanhe sua preparação ao longo do tempo.</div></div><button class="btn primary" data-action="journaladd">+ registrar sessão</button></div><div class="grid g2">${data.journal.length?data.journal.map(j=>`<div class="card"><div class="label">${esc(j.date)}</div><h3>${esc(j.focus)}</h3><div class="kpi"><span><b>${esc(j.hours)} h</b><br><span class="mini">estudo</span></span><span><b>${esc(j.questions)}</b><br><span class="mini">questões</span></span><span><b>${esc(j.accuracy)}%</b><br><span class="mini">acerto</span></span></div>${j.note?`<p class="mini">${esc(j.note)}</p>`:""}</div>`).join(""):`<div class="card empty">Seu diário começa aqui.<br><button class="btn primary" data-action="journaladd" style="margin-top:12px">Registrar primeira sessão</button></div>`}</div>`;
+}
+function settings(){
+ return `<div class="grid g2"><div class="card"><h2>Dados</h2><p class="mini">Seu progresso é salvo neste navegador. Esta versão usa um armazenamento separado para não carregar os dados da versão anterior.</p><button class="btn" data-action="export">Exportar backup JSON</button> <button class="btn" data-action="reset">Começar novamente do zero</button></div><div class="card"><h2>Filosofia</h2><p class="quote">“Não é sobre estudar perfeitamente. É sobre construir, ao longo de meses, uma preparação que você consegue sustentar.”</p><p class="mini">A ofensiva não deve produzir culpa. Ela deve facilitar o retorno.</p></div></div>`;
+}
+function openModal(content){document.getElementById("modalbox").innerHTML=content;document.getElementById("modal").classList.add("open")}
+function closeModal(){document.getElementById("modal").classList.remove("open")}
+function bind(){
+ const menu=document.getElementById("menubtn"),side=document.querySelector(".side"),shade=document.getElementById("navshade"); if(menu) menu.onclick=()=>{side.classList.toggle("open");shade.classList.toggle("open")}; if(shade) shade.onclick=()=>{side.classList.remove("open");shade.classList.remove("open")};
+ document.querySelectorAll("[data-page]").forEach(b=>b.onclick=()=>{render(b.dataset.page);side?.classList.remove("open");shade?.classList.remove("open")});
+ document.querySelectorAll("[data-task]").forEach(el=>el.onclick=()=>{const t=data.tasks.find(x=>x.id==el.dataset.task);t.done=!t.done;if(t.done)data.tokens+=10;save();render("home")});
+ document.querySelectorAll("[data-action]").forEach(b=>b.onclick=()=>action(b.dataset.action,b.dataset.i));
+}
+function action(a,i){
+ if(a==="addtask")openModal(`<h2>Nova tarefa</h2><div class="form"><input id="f1" placeholder="Ex.: Clínica — AVC"><input id="f2" placeholder="Meta, ex.: 30 questões"><select id="f3"><option>alta</option><option selected>média</option><option>baixa</option></select></div><br><button class="btn primary" onclick="addTask()">Adicionar</button>`);
+ if(a==="addsubject")openModal(`<h2>Novo tema</h2><div class="form"><input id="s1" placeholder="Tema"><input id="s2" placeholder="Área"><input id="s3" type="number" placeholder="% de acerto"><input id="s4" type="number" placeholder="Questões"></div><br><button class="btn primary" onclick="addSubject()">Adicionar</button>`);
+ if(a==="addexam"||a==="editexam"){const e=a==="editexam"?data.exams[i]:{},hist=JSON.stringify(e.cutHistory||[]);openModal(`<h2>${a==="editexam"?"Editar processo":"Novo processo seletivo"}</h2><div class="form"><input id="e1" placeholder="Instituição — especialidade" value="${esc(e.name||"")}"><input id="e2" placeholder="Ano" value="${esc(e.year||"2027")}"><input id="e3" type="date" value="${esc(e.date||"")}"><input id="e4" placeholder="Vagas" value="${esc(e.vacancies||"")}"><input id="e5" placeholder="Candidatos/vaga" value="${esc(e.candidates||"")}"><input id="e6" placeholder="Nota de corte de referência" value="${esc(e.cut||"")}"><input id="e10" type="date" value="${esc(e.noticeDate||"")}"><input id="e11" type="date" value="${esc(e.insStart||"")}"><input id="e12" type="date" value="${esc(e.insEnd||"")}"><input id="e13" type="date" value="${esc(e.resultDate||"")}"><input id="e14" placeholder="Taxa de inscrição" value="${esc(e.fee||"")}"><input id="e15" placeholder="Banca organizadora" value="${esc(e.board||"")}"><input id="e7" class="full" placeholder="Link do edital" value="${esc(e.url||"")}"><input id="e9" class="full" placeholder="Site oficial" value="${esc(e.official||"")}"><select id="e8"><option>Acompanhando</option><option>Monitorando</option><option>Inscrição aberta</option><option>Realizada</option></select><textarea id="e16" class="full" placeholder='Histórico JSON'>${esc(hist)}</textarea></div><p class="mini">Histórico: [{"year":"2026","cut":"78","note":"ampla"},{"year":"2025","cut":"76","note":""}]</p><button class="btn primary" onclick="addExam(${a==="editexam"?i:"null"})">Salvar</button>`) }
+ if(a==="logquestions")openModal(`<h2>Registrar questões</h2><div class="form"><input id="q1" placeholder="Foco / tema"><input id="q2" type="number" placeholder="Questões"><input id="q3" type="number" placeholder="Acertos"></div><br><button class="btn primary" onclick="addQuestionLog()">Registrar</button>`);
+ if(a==="addevent")openModal(`<h2>Novo evento</h2><div class="form"><input id="v1" type="date"><input id="v2" placeholder="Nome do evento"><select id="v3"><option>Estudo</option><option>Prova</option><option>Revisão</option><option>Inscrição</option><option>Simulado</option><option>Pessoal</option></select></div><br><button class="btn primary" onclick="addEvent()">Adicionar</button>`);
+ if(a==="newfolder")openModal(`<h2>Nova pasta</h2><input id="fd1" placeholder="Ex.: Clínica Médica"><br><br><button class="btn primary" onclick="addFolder()">Criar pasta</button>`);
+ if(a==="newnotebook"){const f=data.folders.find(x=>x.id==i);openModal(`<h2>Novo caderno</h2><div class="mini">Pasta: ${esc(f?f.name:"")}</div><br><input id="nb1" placeholder="Ex.: Cardiologia"><br><br><button class="btn primary" onclick="addNotebook(${i})">Criar caderno</button>`)}
+ if(a==="newpage"){const n=data.notebooks.find(x=>x.id==i);openModal(`<h2>Nova página</h2><div class="mini">Caderno: ${esc(n?n.name:"")}</div><br><div class="form"><input id="pg1" placeholder="Título"><input id="pg2" placeholder="Tema / subtítulo"><textarea id="pg3" class="full notearea" placeholder="Escreva seu resumo..."></textarea></div><br><button class="btn primary" onclick="addPage(${i})">Criar página</button>`)}
+ if(a==="editpage"){const n=data.notes[i];openModal(`<h2>Editar página</h2><input id="ep1" value="${esc(n.title)}"><input id="ep2" value="${esc(n.subject||"")}"><textarea id="ep3" class="full notearea">${esc(n.body||"")}</textarea><br><button class="btn primary" onclick="savePage(${i})">Salvar</button>`)}
+ if(a==="newnote")openModal(`<h2>Nova página</h2><div class="form"><input id="n1" placeholder="Título"><input id="n2" placeholder="Tema / matéria"><textarea id="n3" class="full notearea" placeholder="Escreva seu resumo..."></textarea></div><br><button class="btn primary" onclick="addNote()">Criar página</button>`);
+ if(a==="savenote"){data.notes[i].body=document.getElementById("noteedit").value;data.notes[i].updated=new Date().toLocaleDateString("pt-BR");save();render("notebook")}
+ if(a==="addreward")openModal(`<h2>Nova recompensa</h2><div class="form"><input id="r1" placeholder="Ex.: Café especial"><input id="r2" type="number" placeholder="Custo em tokens"></div><br><button class="btn primary" onclick="addReward()">Adicionar</button>`);
+ if(a==="claim"){const r=data.rewards[i];if(data.tokens>=r.cost&&!r.claimed){data.tokens-=r.cost;r.claimed=true;save();render("rewards")}}
+ if(a==="journaladd")openModal(`<h2>Registrar sessão</h2><div class="form"><input id="j1" placeholder="Foco da sessão"><input id="j2" type="number" step=".1" placeholder="Horas"><input id="j3" type="number" placeholder="Questões"><input id="j4" type="number" placeholder="% de acerto"><textarea id="j5" class="full" placeholder="Como foi? O que precisa voltar amanhã?"></textarea></div><br><button class="btn primary" onclick="addJournal()">Registrar</button>`);
+ if(a==="session"){openModal(`<h2>Sessão iniciada</h2><div class="metric gold">25:00</div><p class="mini">Este protótipo registra o início da sessão e recompensa o ciclo quando você concluir seu estudo.</p><button class="btn primary" onclick="closeModal()">Continuar</button>`)}
+ if(a==="editgoal")openModal(`<h2>Meta diária</h2><input id="g1" type="number" step=".5" value="${data.goal}"><br><br><button class="btn primary" onclick="data.goal=Number(document.getElementById('g1').value)||4;save();closeModal();render('study')">Salvar</button>`);
+ if(a==="import"){openImport()}
+ if(a==="export"){const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const x=document.createElement("a");x.href=url;x.download="ofensivamed-backup.json";x.click();URL.revokeObjectURL(url)}
+ if(a==="reset"){if(confirm("Isso apagará os registros desta preparação e começará do zero. Continuar?")){data=structuredClone(defaultData);save();render("home")}}
+}
+function addTask(){data.tasks.push({id:Date.now(),name:document.getElementById("f1").value||"Nova tarefa",meta:document.getElementById("f2").value||"Sessão",tag:document.getElementById("f3").value,done:false});save();closeModal();render("home")}
+function addSubject(){data.subjects.push({name:document.getElementById("s1").value||"Novo tema",area:document.getElementById("s2").value||"—",accuracy:Number(document.getElementById("s3").value)||0,questions:Number(document.getElementById("s4").value)||0,priority:"Média",review:"A definir"});save();closeModal();render("study")}
+function addExam(i){const e={name:document.getElementById("e1").value,year:document.getElementById("e2").value,date:document.getElementById("e3").value,vacancies:document.getElementById("e4").value,candidates:document.getElementById("e5").value,cut:document.getElementById("e6").value,status:document.getElementById("e8").value,url:document.getElementById("e7").value,official:document.getElementById("e9").value,noticeDate:document.getElementById("e10").value,insStart:document.getElementById("e11").value,insEnd:document.getElementById("e12").value,resultDate:document.getElementById("e13").value,fee:document.getElementById("e14").value,board:document.getElementById("e15").value,cutHistory:JSON.parse(document.getElementById("e16").value||"[]")};if(i==="null"){e.id=Date.now();data.exams.push(e)}else{e.id=data.exams[i].id||Date.now();data.exams[i]=e}data.events=(data.events||[]).filter(x=>x.examId!==e.id);[[e.noticeDate,"Edital publicado","Edital"],[e.insStart,"Início das inscrições","Inscrição"],[e.insEnd,"Fim das inscrições","Inscrição"],[e.date,"Prova","Prova"],[e.resultDate,"Resultado","Resultado"]].forEach(x=>{if(x[0])data.events.push({date:x[0],title:`${x[1]} — ${e.name}`,type:x[2],examId:e.id})});save();closeModal();render("residency")}
+function addReward(){data.rewards.push({name:document.getElementById("r1").value,cost:Number(document.getElementById("r2").value)||0,claimed:false});save();closeModal();render("rewards")}
+function addJournal(){data.journal.unshift({date:new Date().toLocaleDateString("pt-BR"),focus:document.getElementById("j1").value||"Sessão de estudo",hours:Number(document.getElementById("j2").value)||0,questions:Number(document.getElementById("j3").value)||0,accuracy:Number(document.getElementById("j4").value)||0,note:document.getElementById("j5").value});data.weekHours+=Number(document.getElementById("j2").value)||0;data.streak+=1;data.tokens+=25;save();closeModal();render("journal")}
+
+function addFolder(){data.folders.push({id:Date.now(),name:document.getElementById("fd1").value||"Nova pasta"});save();closeModal();render("notebook")}
+function addNotebook(folderId){data.notebooks.push({id:Date.now(),folderId:folderId,name:document.getElementById("nb1").value||"Novo caderno"});save();closeModal();render("notebook")}
+function addPage(notebookId){data.notes.unshift({id:Date.now(),notebookId:notebookId,title:document.getElementById("pg1").value||"Sem título",subject:document.getElementById("pg2").value||"",body:document.getElementById("pg3").value||"",updated:new Date().toLocaleDateString("pt-BR")});save();closeModal();render("notebook")}
+function savePage(i){data.notes[i].title=document.getElementById("ep1").value||"Sem título";data.notes[i].subject=document.getElementById("ep2").value||"";data.notes[i].body=document.getElementById("ep3").value||"";data.notes[i].updated=new Date().toLocaleDateString("pt-BR");save();closeModal();render("notebook")}
+function addQuestionLog(){const q=Number(document.getElementById("q2").value)||0,c=Number(document.getElementById("q3").value)||0;data.studyLog.unshift({date:new Date().toLocaleDateString("pt-BR"),focus:document.getElementById("q1").value||"Questões",questions:q,correct:c});data.totalQuestions+=q;const totalQ=data.studyLog.reduce((s,x)=>s+x.questions,0),totalC=data.studyLog.reduce((s,x)=>s+x.correct,0);data.overallAccuracy=totalQ?Math.round(totalC/totalQ*100):0;data.tokens+=Math.max(5,Math.min(50,Math.round(q/5)));save();closeModal();render("study")}
+function addEvent(){data.events.push({date:document.getElementById("v1").value,title:document.getElementById("v2").value||"Evento",type:document.getElementById("v3").value});save();closeModal();render("calendar")}
+function addNote(){data.notes.unshift({id:Date.now(),title:document.getElementById("n1").value||"Sem título",subject:document.getElementById("n2").value||"",body:document.getElementById("n3").value||"",updated:new Date().toLocaleDateString("pt-BR")});save();closeModal();render("notebook")}
+document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")closeModal()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+render("home");
+</script>
+<div id="toast" aria-live="polite"></div><script>if('serviceWorker' in navigator && location.protocol !== 'file:'){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}</script>
+</body>
+</html>
